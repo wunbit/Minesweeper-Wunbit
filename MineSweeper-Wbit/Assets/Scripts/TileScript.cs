@@ -1,21 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TileScript : MonoBehaviour
 {
+    Vector2Int id;
     public bool isMined = false;
+    Action<int,int> onClick;
+    public bool isClicked = false;
     public Sprite[] emptyTextures;
     public Sprite mineTexture;
+    public Sprite flagTexture;
+    //public MineGrid mineGrid;
 
-    
-    // Start is called before the first frame update
     void Start()
     {
-        isMined = Random.value < 0.15;
+        isMined = UnityEngine.Random.value < 0.15;
+
     }
 
-    public void loadTexture(int adjacentCount) 
+
+    public void LoadTexture(int adjacentCount)
     {
         if (isMined)
         {
@@ -27,26 +33,15 @@ public class TileScript : MonoBehaviour
         }
     }
 
-    public bool isCovered() 
+    public bool isCovered()
     {
-    return GetComponent<SpriteRenderer>().sprite.texture.name == "default";
+        return GetComponent<SpriteRenderer>().sprite.texture.name == "default";
     }
 
     void OnMouseUpAsButton()
     {
-        if (isMined)
-        {
-
-        }
-        else
-        {
-
-        }
+        //Debug.Log();
+        LoadTexture(0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

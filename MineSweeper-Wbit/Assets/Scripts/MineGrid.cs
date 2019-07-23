@@ -1,18 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 public class MineGrid : MonoBehaviour
 {
     public TileScript tilePrefab;
-    public int columns = 8;
-    public int rows = 8;
-    public float distanceBetweenTiles = 1.0F;
-    public TileScript[,] elements = new TileScript[rows, columns];
-
-    public List <Vector3> gridPositions = new List<Vector3>();
-
+    public Vector2Int dimension;
+    public int minesPercent;
+    public static TileScript[,] cellGrid;
 
     // Start is called before the first frame update
     void Start()
@@ -21,20 +18,36 @@ public class MineGrid : MonoBehaviour
     }
 
 
+
     void CreateTiles()
     {
-        for  (int x = 0; x < columns; x++)
+        if (cellGrid == null)
         {
-            for (int y = 0; y < rows; y++)
+            cellGrid = new TileScript[dimension.x, dimension.y];
+            CellGridLoop((x, y) =>
             {
-                Instantiate(tilePrefab, new Vector3(x,y,0), Quaternion.identity);
-            }
+                TileScript cell = Instantiate(tilePrefab, new Vector3(x,y,0), Quaternion.identity, transform);
+                cell.name = string.Format("(x: {0}, y: {1})", x,y);
+                cellGrid[x,y] = cell;
+            });
         }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void Activate(int x, int y)
     {
-        
+       // print(string.Format("(x: {0}, y: {1})", x,y));
     }
+
+    void CellGridLoop(Action<int, int> e)
+    {
+        for  (int x = 0; x < dimension.x; x++)
+            {
+                for (int y = 0; y < dimension.y; y++)
+                {
+                    e(x,y);
+                }
+            }
+    }
+
 }

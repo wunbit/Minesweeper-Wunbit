@@ -234,9 +234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: -1462306426636407345, guid: 21764aaf40b12ad46beb168a0ba86366,
     type: 3}
-  numberOfTiles: 60
-  tilesPerRow: 6
-  distanceBetweenTiles: 1.01
+  dimension: {x: 10, y: 10}
+  minesPercent: 0
 --- !u!4 &1199598053
 Transform:
   m_ObjectHideFlags: 0

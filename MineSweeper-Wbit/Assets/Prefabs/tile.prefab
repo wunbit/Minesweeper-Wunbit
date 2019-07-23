@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMined: 0
+  isClicked: 0
   emptyTextures:
   - {fileID: 21300000, guid: 109baf06304d86949bf585e570bb1678, type: 3}
   - {fileID: 21300000, guid: 6042f9153dfea3a46b838505a053ceb6, type: 3}
@@ -132,3 +133,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 291b7d2e982a16f4aab4de26b52bb563, type: 3}
   - {fileID: 21300000, guid: e73c0d380938ab54fbb2d631da92f450, type: 3}
   mineTexture: {fileID: 21300000, guid: 01a153e5c1b8ef34896e4934b3abb4dd, type: 3}
+  flagTexture: {fileID: 21300000, guid: 1ce58d86988b522428e51b075fa624a7, type: 3}
