@@ -7,15 +7,17 @@ using System;
 public class MineGrid : MonoBehaviour
 {
     public TileScript tilePrefab;
-    public Vector2Int dimension;
+    public static Vector2Int dimension;
     public int xSize = 10;
     public int ySize = 10;
     public int minesPercent;
-    public TileScript[,] cellGrid;
+    public static TileScript[,] cellGrid;
 
     // Start is called before the first frame update
     void Start()
     {
+        dimension.x = xSize;
+        dimension.y = ySize;
         CreateTiles();
     }
 
@@ -33,7 +35,7 @@ public class MineGrid : MonoBehaviour
         }
     }
 
-    public void uncoverMines()
+    public static void uncoverMines()
     {
         foreach (TileScript cell in cellGrid)
         {
@@ -44,16 +46,16 @@ public class MineGrid : MonoBehaviour
         }
     }
 
-    public bool mineAt(int x, int y) 
+    public static bool mineAt(int x, int y)
     {
     if (x >= 0 && y >= 0 && x < dimension.x && y < dimension.y)
     {
-        return cellGrid[x, y].isMined;
+        return cellGrid[x,y].isMined;
     }
     return false;
     }
 
-    public int adjacentMines(int x, int y)
+    public static int adjacentMines(int x, int y)
     {
         int count = 0;
         if (mineAt(x,   y+1)) ++count; // top
