@@ -17,8 +17,9 @@ public class TileScript : MonoBehaviour
     void Start()
     {
         isMined = UnityEngine.Random.value < 0.15;
-
     }
+
+	
 
 
     public void LoadTexture(int adjacentCount)
