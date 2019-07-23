@@ -17,8 +17,6 @@ public class MineGrid : MonoBehaviour
         CreateTiles();
     }
 
-
-
     void CreateTiles()
     {
         if (cellGrid == null)
@@ -30,6 +28,17 @@ public class MineGrid : MonoBehaviour
                 cell.name = string.Format("(x: {0}, y: {1})", x,y);
                 cellGrid[x,y] = cell;
             });
+        }
+    }
+
+    public static void uncoverMines()
+    {
+        foreach (TileScript cell in cellGrid)
+        {
+            if (cell.isMined)
+            {
+                cell.LoadTexture(0);
+            }
         }
     }
 

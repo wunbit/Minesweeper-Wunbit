@@ -17,6 +17,9 @@ public class TileScript : MonoBehaviour
     void Start()
     {
         isMined = UnityEngine.Random.value < 0.15;
+        //int x = (int)transform.position.x;
+        //int y = (int)transform.position.y;
+        //MineGrid.cellGrid[x,y] = this;
     }
 
 	
@@ -41,7 +44,14 @@ public class TileScript : MonoBehaviour
 
     void OnMouseUpAsButton()
     {
-        //Debug.Log();
+        if (isMined)
+        {
+            MineGrid.uncoverMines();
+        }
+        else
+        {
+
+        }
         LoadTexture(0);
     }
 
