@@ -12,7 +12,7 @@ public class TileScript : MonoBehaviour
     public Sprite[] emptyTextures;
     public Sprite mineTexture;
     public Sprite flagTexture;
-    //public MineGrid mineGrid;
+    public MineGrid mineGrid;
 
     void Start()
     {
@@ -46,13 +46,15 @@ public class TileScript : MonoBehaviour
     {
         if (isMined)
         {
-            MineGrid.uncoverMines();
+            mineGrid.uncoverMines();
         }
         else
         {
-
+        int x = (int)transform.position.x;
+        int y = (int)transform.position.y;
+        int mineCount = mineGrid.adjacentMines(x, y);
+        LoadTexture(mineCount);
         }
-        LoadTexture(0);
     }
 
 }
