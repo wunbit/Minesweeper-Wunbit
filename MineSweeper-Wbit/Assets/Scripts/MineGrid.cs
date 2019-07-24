@@ -10,12 +10,16 @@ public class MineGrid : MonoBehaviour
     public static Vector2Int dimension;
     public int xSize = 10;
     public int ySize = 10;
-    public int minesPercent;
+    [Range(0,100)]
+    public int minePercent;
+    public static float minesPercent;
+    //public int minesPercent;
     public static TileScript[,] cellGrid;
 
     // Start is called before the first frame update
     void Start()
     {
+        minesPercent = (float)minePercent/100;
         dimension.x = xSize;
         dimension.y = ySize;
         CreateTiles();
@@ -67,6 +71,39 @@ public class MineGrid : MonoBehaviour
         if (mineAt(x-1, y  )) ++count; // left
         if (mineAt(x-1, y+1)) ++count; // top-left
         return count;
+    }
+
+    public static void FFuncover (int x, int y, bool[,] visited)
+    {
+        if (x >= 0 && y >= 0 && x < dimension.x && y < dimension.y)
+        {
+            if (visited[x,y])
+            {
+                return;
+            }
+            cellGrid[x, y].LoadTexture(adjacentMines(x, y));
+            if (adjacentMines(x,y) > 0)
+            {
+                return;
+            }
+            visited[x,y] = true;
+            FFuncover(x-1, y, visited);
+            FFuncover(x+1, y, visited);
+            FFuncover(x, y-1, visited);
+            FFuncover(x, y+1, visited);
+        }
+    }
+
+    public static bool isFinished() 
+    {
+        foreach (TileScript cell in cellGrid)
+        {
+            if (cell.isCovered() && !cell.isMined)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
 

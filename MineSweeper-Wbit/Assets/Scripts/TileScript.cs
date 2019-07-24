@@ -16,7 +16,7 @@ public class TileScript : MonoBehaviour
 
     void Start()
     {
-        isMined = UnityEngine.Random.value < 0.15;
+        isMined = UnityEngine.Random.value < MineGrid.minesPercent;
         //int x = (int)transform.position.x;
         //int y = (int)transform.position.y;
         //MineGrid.cellGrid[x,y] = this;
@@ -46,15 +46,19 @@ public class TileScript : MonoBehaviour
     {
         if (isMined)
         {
-            LoadTexture(0);
             MineGrid.uncoverMines();
+            print("you lose");
         }
         else
         {
         int x = (int)transform.position.x;
         int y = (int)transform.position.y;
-        LoadTexture(0);
         LoadTexture( MineGrid.adjacentMines(x, y));
+        MineGrid.FFuncover(x,y, new bool[MineGrid.dimension.x, MineGrid.dimension.y]);
+        if (MineGrid.isFinished())
+        {
+            print("you win");
+        }
         }
     }
 
