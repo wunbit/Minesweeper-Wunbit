@@ -283,7 +283,7 @@ PrefabInstance:
     - target: {fileID: 1371285056978917305, guid: 9ff9f3cf9e5db9e418626a303846d7fe,
         type: 3}
       propertyPath: minePercent
-      value: 12
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ff9f3cf9e5db9e418626a303846d7fe, type: 3}

@@ -43,7 +43,21 @@ public class TileScript : MonoBehaviour
             return false;
         }
     }
-
+    public bool SafeTile()
+    {
+        if (flaggedMine)
+        {
+            //Debug.Log("cell flaggedMine true");
+            return false;
+        }
+        if (IsCovered() && !isMined)
+        {
+            //Debug.Log("cell is covered and not mined true");
+            return true;
+        }
+        //Debug.Log("it skipped safe tile ifs");
+        return false;
+    }
     public void FlagTile()
     {
         GetComponent<SpriteRenderer>().sprite = flagTexture;
@@ -95,6 +109,10 @@ public class TileScript : MonoBehaviour
                 if (!isFlagged)
                 {
                     FlagTile();
+                    if (MineGrid.IsFinished())
+                    {
+                        print("you win");
+                    }
                 }
                 else
                 {

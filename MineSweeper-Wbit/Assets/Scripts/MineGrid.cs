@@ -94,15 +94,11 @@ public class MineGrid : MonoBehaviour
         }
     }
 
-    public static bool IsFinished() 
+    public static bool IsFinished()
     {
         foreach (TileScript cell in cellGrid)
         {
-            if (cell.IsCovered() == false)
-            {
-                cell.isClicked = true;
-            }
-            if (cell.IsCovered() && !cell.isMined)
+            if (cell.SafeTile())
             {
                 return false;
             }
