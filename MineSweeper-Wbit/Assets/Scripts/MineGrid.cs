@@ -107,11 +107,6 @@ public class MineGrid : MonoBehaviour
     }
 
 
-    void Activate(int x, int y)
-    {
-       // print(string.Format("(x: {0}, y: {1})", x,y));
-    }
-
     void CellGridLoop(Action<int, int> e)
     {
         for  (int x = 0; x < dimension.x; x++)

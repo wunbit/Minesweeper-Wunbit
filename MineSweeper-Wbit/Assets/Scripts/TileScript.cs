@@ -51,20 +51,33 @@ public class TileScript : MonoBehaviour
 
     void OnMouseUpAsButton()
     {
-        if (isMined)
-        {
-            MineGrid.uncoverMines();
-            print("you lose");
-        }
-        else
-        {
-        int x = (int)transform.position.x;
-        int y = (int)transform.position.y;
-        LoadTexture( MineGrid.adjacentMines(x, y));
-        MineGrid.FFuncover(x,y, new bool[MineGrid.dimension.x, MineGrid.dimension.y]);
-        if (MineGrid.isFinished())
-        {
-            print("you win");
-        }
-        }
+        
     }
+
+
+    void OnMouseOver()
+    {
+             if(Input.GetMouseButtonDown(0))
+        {
+            if (isMined)
+            {
+                MineGrid.uncoverMines();
+                print("you lose");
+            }
+            else
+            {
+                int x = (int)transform.position.x;
+                int y = (int)transform.position.y;
+                LoadTexture( MineGrid.adjacentMines(x, y));
+                MineGrid.FFuncover(x,y, new bool[MineGrid.dimension.x, MineGrid.dimension.y]);
+                if (MineGrid.isFinished())
+                {
+                    print("you win");
+                }
+            }
+        }
+        if(Input.GetMouseButtonDown(1))
+        {
+            GetComponent<SpriteRenderer>().sprite = flagTexture;
+        }
+    }}
