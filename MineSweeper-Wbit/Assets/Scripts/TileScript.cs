@@ -39,7 +39,14 @@ public class TileScript : MonoBehaviour
 
     public bool isCovered()
     {
-        return GetComponent<SpriteRenderer>().sprite.texture.name == "default";
+        if (GetComponent<SpriteRenderer>().sprite.texture.name == "tile")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     void OnMouseUpAsButton()
