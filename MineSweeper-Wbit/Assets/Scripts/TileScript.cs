@@ -21,10 +21,6 @@ public class TileScript : MonoBehaviour
         //int y = (int)transform.position.y;
         //MineGrid.cellGrid[x,y] = this;
     }
-
-	
-
-
     public void LoadTexture(int adjacentCount)
     {
         if (isMined)
@@ -48,16 +44,9 @@ public class TileScript : MonoBehaviour
             return false;
         }
     }
-
-    void OnMouseUpAsButton()
-    {
-        
-    }
-
-
     void OnMouseOver()
     {
-             if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0))
         {
             if (isMined)
             {
@@ -80,4 +69,5 @@ public class TileScript : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().sprite = flagTexture;
         }
-    }}
+    }
+}
