@@ -39,7 +39,7 @@ public class MineGrid : MonoBehaviour
         }
     }
 
-    public static void uncoverMines()
+    public static void UncoverMines()
     {
         foreach (TileScript cell in cellGrid)
         {
@@ -50,7 +50,7 @@ public class MineGrid : MonoBehaviour
         }
     }
 
-    public static bool mineAt(int x, int y)
+    public static bool MineAt(int x, int y)
     {
     if (x >= 0 && y >= 0 && x < dimension.x && y < dimension.y)
     {
@@ -59,17 +59,17 @@ public class MineGrid : MonoBehaviour
     return false;
     }
 
-    public static int adjacentMines(int x, int y)
+    public static int AdjacentMines(int x, int y)
     {
         int count = 0;
-        if (mineAt(x,   y+1)) ++count; // top
-        if (mineAt(x+1, y+1)) ++count; // top-right
-        if (mineAt(x+1, y  )) ++count; // right
-        if (mineAt(x+1, y-1)) ++count; // bottom-right
-        if (mineAt(x,   y-1)) ++count; // bottom
-        if (mineAt(x-1, y-1)) ++count; // bottom-left
-        if (mineAt(x-1, y  )) ++count; // left
-        if (mineAt(x-1, y+1)) ++count; // top-left
+        if (MineAt(x,   y+1)) ++count; // top
+        if (MineAt(x+1, y+1)) ++count; // top-right
+        if (MineAt(x+1, y  )) ++count; // right
+        if (MineAt(x+1, y-1)) ++count; // bottom-right
+        if (MineAt(x,   y-1)) ++count; // bottom
+        if (MineAt(x-1, y-1)) ++count; // bottom-left
+        if (MineAt(x-1, y  )) ++count; // left
+        if (MineAt(x-1, y+1)) ++count; // top-left
         return count;
     }
 
@@ -81,8 +81,8 @@ public class MineGrid : MonoBehaviour
             {
                 return;
             }
-            cellGrid[x, y].LoadTexture(adjacentMines(x, y));
-            if (adjacentMines(x,y) > 0)
+            cellGrid[x, y].LoadTexture(AdjacentMines(x, y));
+            if (AdjacentMines(x,y) > 0)
             {
                 return;
             }
@@ -94,11 +94,15 @@ public class MineGrid : MonoBehaviour
         }
     }
 
-    public static bool isFinished() 
+    public static bool IsFinished() 
     {
         foreach (TileScript cell in cellGrid)
         {
-            if (cell.isCovered() && !cell.isMined)
+            if (cell.IsCovered() == false)
+            {
+                cell.isClicked = true;
+            }
+            if (cell.IsCovered() && !cell.isMined)
             {
                 return false;
             }
@@ -106,6 +110,16 @@ public class MineGrid : MonoBehaviour
         return true;
     }
 
+    public static void FloodedtoClicked()
+    {
+        foreach (TileScript cell in cellGrid)
+        {
+            if (cell.IsCovered() == false)
+            {
+                cell.isClicked = true;
+            }
+        }
+    }
 
     void CellGridLoop(Action<int, int> e)
     {
