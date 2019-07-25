@@ -12,11 +12,11 @@ public class MineGrid : MonoBehaviour
     public int ySize = 10;
     [Range(0,100)]
     public int minePercent;
+    public static bool gameOver = false;
     public static float minesPercent;
-    //public int minesPercent;
+
     public static TileScript[,] cellGrid;
 
-    // Start is called before the first frame update
     void Start()
     {
         minesPercent = (float)minePercent/100;
@@ -30,12 +30,15 @@ public class MineGrid : MonoBehaviour
         if (cellGrid == null)
         {
             cellGrid = new TileScript[dimension.x, dimension.y];
-            CellGridLoop((x, y) =>
+            for  (int x = 0; x < dimension.x; x++)
             {
+                for (int y = 0; y < dimension.y; y++)
+                {
                 TileScript cell = Instantiate(tilePrefab, new Vector3(x,y,0), Quaternion.identity, transform);
                 cell.name = string.Format("(x: {0}, y: {1})", x,y);
                 cellGrid[x,y] = cell;
-            });
+                }
+            }
         }
     }
 
@@ -117,15 +120,6 @@ public class MineGrid : MonoBehaviour
         }
     }
 
-    void CellGridLoop(Action<int, int> e)
-    {
-        for  (int x = 0; x < dimension.x; x++)
-            {
-                for (int y = 0; y < dimension.y; y++)
-                {
-                    e(x,y);
-                }
-            }
-    }
+
 
 }

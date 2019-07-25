@@ -78,47 +78,54 @@ public class TileScript : MonoBehaviour
     }
     void OnMouseOver()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (MineGrid.gameOver == false)
         {
-            if (!isFlagged)
-            {
-                if (isMined)
-                {
-                    MineGrid.UncoverMines();
-                    print("you lose");
-                }
-                else
-                {
-                    isClicked = true;
-                    int x = (int)transform.position.x;
-                    int y = (int)transform.position.y;
-                    LoadTexture( MineGrid.AdjacentMines(x, y));
-                    MineGrid.FFuncover(x,y, new bool[MineGrid.dimension.x, MineGrid.dimension.y]);
-                    MineGrid.FloodedtoClicked();
-                    if (MineGrid.IsFinished())
-                    {
-                        print("you win");
-                    }
-                }
-            }
-        }
-        if(Input.GetMouseButtonDown(1))
-        {
-            if (!isClicked)
+            if(Input.GetMouseButtonDown(0))
             {
                 if (!isFlagged)
                 {
-                    FlagTile();
-                    if (MineGrid.IsFinished())
+                    if (isMined)
                     {
-                        print("you win");
+                        MineGrid.UncoverMines();
+                        MineGrid.gameOver = true;
+                        print("you lose");
+                    }
+                    else
+                    {
+                        isClicked = true;
+                        int x = (int)transform.position.x;
+                        int y = (int)transform.position.y;
+                        LoadTexture( MineGrid.AdjacentMines(x, y));
+                        MineGrid.FFuncover(x,y, new bool[MineGrid.dimension.x, MineGrid.dimension.y]);
+                        MineGrid.FloodedtoClicked();
+                        if (MineGrid.IsFinished())
+                        {
+                            MineGrid.gameOver = true;
+                            print("you win");
+                        }
                     }
                 }
-                else
+            }
+            if(Input.GetMouseButtonDown(1))
+            {
+                if (!isClicked)
                 {
-                    UnFlagTile();
+                    if (!isFlagged)
+                    {
+                        FlagTile();
+                        if (MineGrid.IsFinished())
+                        {
+                            print("you win");
+                            MineGrid.gameOver = true;
+                        }
+                    }
+                    else
+                    {
+                        UnFlagTile();
+                    }
                 }
             }
         }
+        
     }
 }
