@@ -28,19 +28,14 @@ public class MineGrid : MonoBehaviour
     public GameObject winCard;
     public GameObject loseCard;
 
-    void Start()
+    void Awake()
     {
+        winCard.SetActive(false);
+        loseCard.SetActive(false);
         minesPercent = (float)minePercent/100;
         dimension.x = xSize;
         dimension.y = ySize;
         //StartGame();
-    }
-
-    public void OnRestartCardClick()
-    {
-        winCard.SetActive(false);
-        loseCard.SetActive(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void StartGame()
@@ -50,23 +45,25 @@ public class MineGrid : MonoBehaviour
         CreateBorder();
     }
 
-    void CreateTiles()
+    public void HideCards()
     {
-        
-        
-            cellGrid = new TileScript[dimension.x, dimension.y];
-            for  (int x = 0; x < dimension.x; x++)
-            {
-                for (int y = 0; y < dimension.y; y++)
-                {
-                    TileScript cell = Instantiate(tilePrefab, new Vector3(x,y,0), Quaternion.identity, transform);
-                    cell.name = string.Format("(x: {0}, y: {1})", x,y);
-                    cellGrid[x,y] = cell;
-                }
-            }
-        
+        winCard.SetActive(false);
+        loseCard.SetActive(false);
     }
 
+    void CreateTiles()
+    {
+        cellGrid = new TileScript[dimension.x, dimension.y];
+        for  (int x = 0; x < dimension.x; x++)
+        {
+            for (int y = 0; y < dimension.y; y++)
+            {
+                TileScript cell = Instantiate(tilePrefab, new Vector3(x,y,0), Quaternion.identity, transform);
+                cell.name = string.Format("(x: {0}, y: {1})", x,y);
+                cellGrid[x,y] = cell;
+            }
+        }
+    }
         void CreateBorder()
     {
         int bordertop = dimension.y + 1;
@@ -77,12 +74,10 @@ public class MineGrid : MonoBehaviour
             {
                 if (x == -1 && y == -1)
                 {
-                    Debug.Log("downleft border true");
                     Instantiate(downLeftBorder, new Vector3(x,y, 0), Quaternion.identity, transform);
                 }
                 else if (x == -1 && y == bordertop - 1)
                 {
-                    Debug.Log("topleft border true");
                     Instantiate(topLeftBorder, new Vector3(x,y, 0), Quaternion.identity, transform);
                 }
                 else if (x == borderright -1 && y == -1)
@@ -126,9 +121,20 @@ public class MineGrid : MonoBehaviour
 
 
 
-    public static void FinishGame()
+    public void FinishGame()
     {
         gameOver=true;
+        Debug.Log("gameover = true");
+        //winCard.SetActive(true);
+        Debug.Log("wincard should be set active");
+    }
+
+    public void LoseGame()
+    {
+        gameOver = true;
+        Debug.Log("gameover = true");
+        //loseCard.SetActive(true);
+        Debug.Log("losecard should be set active");
     }
 
     public static bool MineAt(int x, int y)
