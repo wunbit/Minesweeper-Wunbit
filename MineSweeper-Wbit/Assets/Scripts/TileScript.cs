@@ -16,8 +16,8 @@ public class TileScript : MonoBehaviour
     public Sprite mineTexture;
     public Sprite flagTexture;
     public MineGrid mineGrid;
-    public GameObject wincardref;
-    public GameObject losecardref;
+    //public GameObject wincardref;
+    //public GameObject losecardref;
 
     void Start()
     {
@@ -88,7 +88,7 @@ public class TileScript : MonoBehaviour
                     {
                         MineGrid.UncoverMines();
                         mineGrid.LoseGame();
-                        losecardref.SetActive(true);
+                        //losecardref.SetActive(true);
                     }
                     else
                     {

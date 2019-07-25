@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 public class RestartScr : MonoBehaviour
 {
     public MineGrid mineScrptB;
-    public GameObject wincardref;
-    public GameObject losecardref;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +15,7 @@ public class RestartScr : MonoBehaviour
 
         public void OnRestartCardClick()
     {
-        //mineScrptB.HideCards();
-        wincardref.SetActive(false);
-        losecardref.SetActive(false);
+        mineScrptB.HideCards();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     // Update is called once per frame

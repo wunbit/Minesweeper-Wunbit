@@ -228,8 +228,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mineScrptB: {fileID: 0}
-  wincardref: {fileID: 0}
-  losecardref: {fileID: 1275732371595979617}
 --- !u!1 &1275732372039999822
 GameObject:
   m_ObjectHideFlags: 0

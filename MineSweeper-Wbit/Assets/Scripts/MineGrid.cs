@@ -35,6 +35,8 @@ public class MineGrid : MonoBehaviour
         minesPercent = (float)minePercent/100;
         dimension.x = xSize;
         dimension.y = ySize;
+        winCard = GetComponent<GameObject>();
+        loseCard = GetComponent<GameObject>();
         //StartGame();
     }
 
@@ -125,7 +127,7 @@ public class MineGrid : MonoBehaviour
     {
         gameOver=true;
         Debug.Log("gameover = true");
-        //winCard.SetActive(true);
+        winCard.SetActive(true);
         Debug.Log("wincard should be set active");
     }
 
@@ -133,7 +135,7 @@ public class MineGrid : MonoBehaviour
     {
         gameOver = true;
         Debug.Log("gameover = true");
-        //loseCard.SetActive(true);
+        loseCard.SetActive(true);
         Debug.Log("losecard should be set active");
     }
 

@@ -66,5 +66,6 @@ MonoBehaviour:
     type: 3}
   startCard: {fileID: 2854127229412745867, guid: e396e51d4f6b0e24d9581c4f593e8c08,
     type: 3}
-  winCard: {fileID: 1447760652346415386, guid: 674b348624b846a4e9735c03e8f03f82, type: 3}
-  loseCard: {fileID: 83524014322147444, guid: 077e7a664a01c4040b68d266e0b808a6, type: 3}
+  winCard: {fileID: 8230853722780643460, guid: 674b348624b846a4e9735c03e8f03f82, type: 3}
+  loseCard: {fileID: 1275732371595979617, guid: 077e7a664a01c4040b68d266e0b808a6,
+    type: 3}
