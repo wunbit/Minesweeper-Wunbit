@@ -53,6 +53,11 @@ public class MineGrid : MonoBehaviour
         }
     }
 
+    public static void FinishGame()
+    {
+        gameOver=true;
+    }
+
     public static bool MineAt(int x, int y)
     {
     if (x >= 0 && y >= 0 && x < dimension.x && y < dimension.y)

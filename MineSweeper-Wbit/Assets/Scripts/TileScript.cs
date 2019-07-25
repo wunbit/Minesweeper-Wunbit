@@ -87,8 +87,7 @@ public class TileScript : MonoBehaviour
                     if (isMined)
                     {
                         MineGrid.UncoverMines();
-                        MineGrid.gameOver = true;
-                        print("you lose");
+                        MineGrid.FinishGame();
                     }
                     else
                     {
@@ -100,8 +99,7 @@ public class TileScript : MonoBehaviour
                         MineGrid.FloodedtoClicked();
                         if (MineGrid.IsFinished())
                         {
-                            MineGrid.gameOver = true;
-                            print("you win");
+                            MineGrid.FinishGame();
                         }
                     }
                 }
@@ -115,8 +113,7 @@ public class TileScript : MonoBehaviour
                         FlagTile();
                         if (MineGrid.IsFinished())
                         {
-                            print("you win");
-                            MineGrid.gameOver = true;
+                            MineGrid.FinishGame();
                         }
                     }
                     else
