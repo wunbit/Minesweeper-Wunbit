@@ -33,13 +33,6 @@ public class MineGrid : MonoBehaviour
         minesPercent = (float)minePercent/100;
         dimension.x = xSize;
         dimension.y = ySize;
-        StartGame();
-    }
-
-    public void OnStartCardClick()
-    {
-        Debug.Log("startcard clicked");
-        startCard.SetActive(false);
         //StartGame();
     }
 
@@ -52,15 +45,15 @@ public class MineGrid : MonoBehaviour
 
     public void StartGame()
     {
-        
+        startCard.SetActive(false);
         CreateTiles();
         CreateBorder();
     }
 
     void CreateTiles()
     {
-        if (cellGrid == null)
-        {
+        
+        
             cellGrid = new TileScript[dimension.x, dimension.y];
             for  (int x = 0; x < dimension.x; x++)
             {
@@ -71,7 +64,7 @@ public class MineGrid : MonoBehaviour
                     cellGrid[x,y] = cell;
                 }
             }
-        }
+        
     }
 
         void CreateBorder()
