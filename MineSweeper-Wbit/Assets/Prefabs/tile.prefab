@@ -137,3 +137,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e73c0d380938ab54fbb2d631da92f450, type: 3}
   mineTexture: {fileID: 21300000, guid: 01a153e5c1b8ef34896e4934b3abb4dd, type: 3}
   flagTexture: {fileID: 21300000, guid: 1ce58d86988b522428e51b075fa624a7, type: 3}
+  winCard: {fileID: 1447760652346415386, guid: 674b348624b846a4e9735c03e8f03f82, type: 3}
+  loseCard: {fileID: 83524014322147444, guid: 077e7a664a01c4040b68d266e0b808a6, type: 3}

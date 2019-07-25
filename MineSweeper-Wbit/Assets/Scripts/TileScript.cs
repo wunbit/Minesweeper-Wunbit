@@ -15,6 +15,9 @@ public class TileScript : MonoBehaviour
     public Sprite[] emptyTextures;
     public Sprite mineTexture;
     public Sprite flagTexture;
+    
+    public GameObject winCard;
+    public GameObject loseCard;
 
     void Start()
     {
@@ -85,6 +88,7 @@ public class TileScript : MonoBehaviour
                     {
                         MineGrid.UncoverMines();
                         MineGrid.FinishGame();
+                        loseCard.SetActive(true);
                     }
                     else
                     {
@@ -96,6 +100,7 @@ public class TileScript : MonoBehaviour
                         MineGrid.FloodedtoClicked();
                         if (MineGrid.IsFinished())
                         {
+                            winCard.SetActive(true);
                             MineGrid.FinishGame();
                         }
                     }
@@ -110,6 +115,7 @@ public class TileScript : MonoBehaviour
                         FlagTile();
                         if (MineGrid.IsFinished())
                         {
+                            winCard.SetActive(true);
                             MineGrid.FinishGame();
                         }
                     }

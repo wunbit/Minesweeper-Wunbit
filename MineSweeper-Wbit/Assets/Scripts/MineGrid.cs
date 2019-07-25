@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 
 public class MineGrid : MonoBehaviour
@@ -23,12 +24,35 @@ public class MineGrid : MonoBehaviour
     public GameObject topRightBorder;
     public GameObject downRightBorder;
     public GameObject downLeftBorder;
+    public GameObject startCard;
+    public GameObject winCard;
+    public GameObject loseCard;
 
     void Start()
     {
         minesPercent = (float)minePercent/100;
         dimension.x = xSize;
         dimension.y = ySize;
+        StartGame();
+    }
+
+    public void OnStartCardClick()
+    {
+        Debug.Log("startcard clicked");
+        startCard.SetActive(false);
+        //StartGame();
+    }
+
+    public void OnRestartCardClick()
+    {
+        winCard.SetActive(false);
+        loseCard.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void StartGame()
+    {
+        
         CreateTiles();
         CreateBorder();
     }

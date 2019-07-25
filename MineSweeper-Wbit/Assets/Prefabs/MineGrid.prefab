@@ -45,7 +45,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: -1462306426636407345, guid: 21764aaf40b12ad46beb168a0ba86366,
     type: 3}
-  dimension: {x: 10, y: 10}
   xSize: 10
   ySize: 10
-  minesPercent: 0
+  minePercent: 0
+  downBorder: {fileID: 2311699201763839686, guid: 7443699300faf14498e59d809cd78e32,
+    type: 3}
+  topBorder: {fileID: 7894612616434039903, guid: a4e0d81b85021734e974f975235ee002,
+    type: 3}
+  leftBorder: {fileID: 5917838819983209840, guid: b402b0ba898f8654da55b8d9970f7c88,
+    type: 3}
+  rightBorder: {fileID: 5263599579176339517, guid: 084f8129491966646bba0f7c154afaa2,
+    type: 3}
+  topLeftBorder: {fileID: 8295693516844531837, guid: ae5ceea79913bf840b4a02a2d6234737,
+    type: 3}
+  topRightBorder: {fileID: 502531411635811860, guid: 7bf69d79b8cbc3f45a76ae45117aba7d,
+    type: 3}
+  downRightBorder: {fileID: 2068930983858406154, guid: 97e83c79f01f2c8489577afd0d2e0429,
+    type: 3}
+  downLeftBorder: {fileID: 7026468977540456040, guid: 6e5316157af1c0645a26172731f435e4,
+    type: 3}
+  startCard: {fileID: 2854127229412745867, guid: e396e51d4f6b0e24d9581c4f593e8c08,
+    type: 3}
+  winCard: {fileID: 1447760652346415386, guid: 674b348624b846a4e9735c03e8f03f82, type: 3}
+  loseCard: {fileID: 83524014322147444, guid: 077e7a664a01c4040b68d266e0b808a6, type: 3}
