@@ -47,15 +47,12 @@ public class TileScript : MonoBehaviour
     {
         if (flaggedMine)
         {
-            //Debug.Log("cell flaggedMine true");
             return false;
         }
         if (IsCovered() && !isMined)
         {
-            //Debug.Log("cell is covered and not mined true");
             return true;
         }
-        //Debug.Log("it skipped safe tile ifs");
         return false;
     }
     public void FlagTile()

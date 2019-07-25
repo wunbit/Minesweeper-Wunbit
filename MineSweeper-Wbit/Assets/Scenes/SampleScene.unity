@@ -273,17 +273,65 @@ PrefabInstance:
     - target: {fileID: 1371285056978917305, guid: 9ff9f3cf9e5db9e418626a303846d7fe,
         type: 3}
       propertyPath: xSize
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1371285056978917305, guid: 9ff9f3cf9e5db9e418626a303846d7fe,
         type: 3}
       propertyPath: ySize
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1371285056978917305, guid: 9ff9f3cf9e5db9e418626a303846d7fe,
         type: 3}
       propertyPath: minePercent
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1371285056978917305, guid: 9ff9f3cf9e5db9e418626a303846d7fe,
+        type: 3}
+      propertyPath: downBorder
+      value: 
+      objectReference: {fileID: 2311699201763839686, guid: 7443699300faf14498e59d809cd78e32,
+        type: 3}
+    - target: {fileID: 1371285056978917305, guid: 9ff9f3cf9e5db9e418626a303846d7fe,
+        type: 3}
+      propertyPath: topBorder
+      value: 
+      objectReference: {fileID: 7894612616434039903, guid: a4e0d81b85021734e974f975235ee002,
+        type: 3}
+    - target: {fileID: 1371285056978917305, guid: 9ff9f3cf9e5db9e418626a303846d7fe,
+        type: 3}
+      propertyPath: leftBorder
+      value: 
+      objectReference: {fileID: 5917838819983209840, guid: b402b0ba898f8654da55b8d9970f7c88,
+        type: 3}
+    - target: {fileID: 1371285056978917305, guid: 9ff9f3cf9e5db9e418626a303846d7fe,
+        type: 3}
+      propertyPath: rightBorder
+      value: 
+      objectReference: {fileID: 5263599579176339517, guid: 084f8129491966646bba0f7c154afaa2,
+        type: 3}
+    - target: {fileID: 1371285056978917305, guid: 9ff9f3cf9e5db9e418626a303846d7fe,
+        type: 3}
+      propertyPath: downLeftBorder
+      value: 
+      objectReference: {fileID: 7026468977540456040, guid: 6e5316157af1c0645a26172731f435e4,
+        type: 3}
+    - target: {fileID: 1371285056978917305, guid: 9ff9f3cf9e5db9e418626a303846d7fe,
+        type: 3}
+      propertyPath: downRightBorder
+      value: 
+      objectReference: {fileID: 2068930983858406154, guid: 97e83c79f01f2c8489577afd0d2e0429,
+        type: 3}
+    - target: {fileID: 1371285056978917305, guid: 9ff9f3cf9e5db9e418626a303846d7fe,
+        type: 3}
+      propertyPath: topLeftBorder
+      value: 
+      objectReference: {fileID: 8295693516844531837, guid: ae5ceea79913bf840b4a02a2d6234737,
+        type: 3}
+    - target: {fileID: 1371285056978917305, guid: 9ff9f3cf9e5db9e418626a303846d7fe,
+        type: 3}
+      propertyPath: topRightBorder
+      value: 
+      objectReference: {fileID: 502531411635811860, guid: 7bf69d79b8cbc3f45a76ae45117aba7d,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ff9f3cf9e5db9e418626a303846d7fe, type: 3}

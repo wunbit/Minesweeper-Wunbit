@@ -14,8 +14,15 @@ public class MineGrid : MonoBehaviour
     public int minePercent;
     public static bool gameOver = false;
     public static float minesPercent;
-
     public static TileScript[,] cellGrid;
+    public GameObject downBorder;
+    public GameObject topBorder;
+    public GameObject leftBorder;
+    public GameObject rightBorder;
+    public GameObject topLeftBorder;
+    public GameObject topRightBorder;
+    public GameObject downRightBorder;
+    public GameObject downLeftBorder;
 
     void Start()
     {
@@ -23,6 +30,7 @@ public class MineGrid : MonoBehaviour
         dimension.x = xSize;
         dimension.y = ySize;
         CreateTiles();
+        CreateBorder();
     }
 
     void CreateTiles()
@@ -34,9 +42,55 @@ public class MineGrid : MonoBehaviour
             {
                 for (int y = 0; y < dimension.y; y++)
                 {
-                TileScript cell = Instantiate(tilePrefab, new Vector3(x,y,0), Quaternion.identity, transform);
-                cell.name = string.Format("(x: {0}, y: {1})", x,y);
-                cellGrid[x,y] = cell;
+                    TileScript cell = Instantiate(tilePrefab, new Vector3(x,y,0), Quaternion.identity, transform);
+                    cell.name = string.Format("(x: {0}, y: {1})", x,y);
+                    cellGrid[x,y] = cell;
+                }
+            }
+        }
+    }
+
+        void CreateBorder()
+    {
+        int bordertop = dimension.y + 1;
+        int borderright = dimension.x + 1;
+        for  (int x = -1; x < borderright; x++)
+        {
+            for (int y = -1; y < bordertop; y++)
+            {
+                if (x == -1 && y == -1)
+                {
+                    Debug.Log("downleft border true");
+                    Instantiate(downLeftBorder, new Vector3(x,y, 0), Quaternion.identity, transform);
+                }
+                else if (x == -1 && y == bordertop - 1)
+                {
+                    Debug.Log("topleft border true");
+                    Instantiate(topLeftBorder, new Vector3(x,y, 0), Quaternion.identity, transform);
+                }
+                else if (x == borderright -1 && y == -1)
+                {
+                    Instantiate(downRightBorder, new Vector3(x,y, 0), Quaternion.identity, transform);
+                }
+                else if (x == borderright - 1 && y == bordertop - 1)
+                {
+                    Instantiate(topRightBorder, new Vector3(x,y, 0), Quaternion.identity, transform);
+                }
+                else if (x == -1)
+                {
+                    Instantiate(leftBorder, new Vector3(x,y, 0), Quaternion.identity, transform);
+                }
+                else if (x == borderright - 1)
+                {
+                    Instantiate(rightBorder, new Vector3(x,y, 0), Quaternion.identity, transform);
+                }
+                else if (y == -1)
+                {
+                    Instantiate(downBorder, new Vector3(x,y, 0), Quaternion.identity, transform);
+                }
+                else if (y == bordertop - 1)
+                {
+                    Instantiate(topBorder, new Vector3(x,y, 0), Quaternion.identity, transform);
                 }
             }
         }
@@ -52,6 +106,8 @@ public class MineGrid : MonoBehaviour
             }
         }
     }
+
+
 
     public static void FinishGame()
     {
